@@ -1,3 +1,95 @@
+//A. Grasshopper on a Line
+
+#include <bits/stdc++.h>
+using namespace std;
+typedef long long ll;
+void solve() {
+    ll x,k;
+    cin>>x>>k;
+    if(x%k!=0){
+        cout<<1<<endl;
+        cout<<x<<endl;
+    }else{
+        cout<<2<<endl;
+        cout<<1<<" "<<x-1<<endl;
+    }
+}
+int main() {
+    ios::sync_with_stdio(false);
+    cin.tie(0);
+    cout.tie(0);
+    int t;
+    cin >> t;
+    while (t--) {
+        solve();
+    }
+    return 0;
+}
+
+
+/*
+//A. Forbidden Integer
+#include <bits/stdc++.h>
+using namespace std;
+typedef long long ll;
+void solve() {
+    ll n,k,x;
+    cin>>n>>k>>x;
+    if(x!=1){
+        cout<<"YES"<<endl;
+        cout<<n<<endl;
+        for(ll i=0; i<n; i++){
+            cout<<1<<" ";
+        }
+        cout<<endl;
+    }else{
+        if(k==1){
+            cout<<"NO"<<endl;
+        }else if(k==2){
+            if(n%2==0){
+                cout<<"YES"<<endl;
+                cout<<n/2<<endl;
+                for(ll i=0; i<n/2; i++){
+                    cout<<2<<" ";
+                }
+                cout<<endl;
+            }else{
+                cout<<"NO"<<endl;
+            }
+        }else{
+             if(n%2==0){
+                cout<<"YES"<<endl;
+                cout<<n/2<<endl;
+                for(ll i=0; i<n/2; i++){
+                    cout<<2<<" ";
+                }
+                cout<<endl;
+             }else{
+                cout<<"YES"<<endl;
+                ll a=(n/2)-1;
+                cout<<a+1<<endl;
+                for(ll i=0; i<a; i++){
+                    cout<<2<<" ";
+                }
+                cout<<3<<endl;
+             }
+        }
+    }
+}
+int main() {
+    ios::sync_with_stdio(false);
+    cin.tie(0);
+    cout.tie(0);
+    int t;
+    cin >> t;
+    while (t--) {
+        solve();
+    }
+    return 0;
+}
+*/
+
+/*
 //A. Desorting
 #include <bits/stdc++.h>
 using namespace std;
@@ -9,13 +101,30 @@ void solve() {
     for(ll i=0; i<n; i++){
         cin>>a[i];
     }
-    for(ll i=1; i<n-1; i++){
+    ll minDiff=INT_MAX;
+    ll leftIndex=0;
+    ll rightIndex=0;
+    ll ans=0;
+    for(ll i=1; i<n; i++){
         ll temp=a[i]-a[i-1];
         if(temp<0){
             cout<<0<<endl;
             return;
+        }else{
+            if(min(temp,minDiff)<minDiff){
+                minDiff=min(temp,minDiff);
+                leftIndex=i-1;
+                rightIndex=i;
+            }
         }
     }
+    // while(a[rightIndex]>=a[leftIndex]){
+    //     a[rightIndex]-=1;
+    //     a[leftIndex]+=1;
+    //     ans++;
+    // }
+    ans=minDiff/2+1;
+    cout<<ans<<endl;
 }
 
 int main() {
@@ -31,6 +140,7 @@ int main() {
 
     return 0;
 }
+*/
 
 /*
 //A. Array Coloring
