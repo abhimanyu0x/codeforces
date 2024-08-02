@@ -1,3 +1,79 @@
+//B. Not Dividing
+#include <bits/stdc++.h>
+using namespace std;
+typedef long long ll;
+void solve() {
+    ll n;
+    cin>>n;
+    vector<ll>a(n);
+    for(ll i=0; i<n; i++){
+        cin>>a[i];
+    }
+    for(ll i=0; i<n; i++){
+        a[i]++;
+    }
+    for(ll i=1; i<n; i++){
+        if(a[i]%a[i-1]==0){
+            a[i]++;
+        }
+    }
+    for(auto i:a){
+        cout<<i<<" ";
+    }
+    cout<<endl;
+}
+int main() {
+    ios::sync_with_stdio(false);
+    cin.tie(0);
+    cout.tie(0);
+    int t;
+    cin >> t;
+    while (t--) {
+        solve();
+    }
+    return 0;
+}
+
+
+/*
+//D. Odd Queries
+#include <bits/stdc++.h>
+using namespace std;
+typedef long long ll;
+void solve() {
+    ll n,q;
+    cin>>n>>q;
+    vector<ll>a(n+1,0);
+    for(ll i=1; i<=n; i++){
+        ll temp;
+        cin>>temp;
+        a[i]=temp+a[i-1];
+    }
+    ll sum=a[n];
+    for(ll i=0; i<q; i++){
+        ll l,r,k;
+        cin>>l>>r>>k;
+        l--;
+        r--;
+        ll tempSum=a[r+1]-a[l];
+        ll newSum=sum-tempSum+((r-l+1)*k);
+        if(newSum%2!=0)cout<<"YES"<<endl;
+        else cout<<"NO"<<endl;
+    }
+}
+int main() {
+    ios::sync_with_stdio(false);
+    cin.tie(0);
+    cout.tie(0);
+    int t;
+    cin >> t;
+    while (t--) {
+        solve();
+    }
+    return 0;
+}
+*/
+/*
 //B. Permutation Swap
 
 #include <bits/stdc++.h>
@@ -24,7 +100,7 @@ int main() {
     }
     return 0;
 }
-
+*/
 /*
 
 //B. Comparison String
